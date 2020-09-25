@@ -53,8 +53,10 @@ class _MyHomePageState extends State<MyHomePage> {
               child: SizedBox(
                 height: 60,
                 width: 222,
-                child: FirstWidget(onFirstWidgetWidgetCreated:(c){
+                child: FirstWidget(onFirstWidgetWidgetCreated:(c) async{
                   this.controller = c;
+                  var ping_result = await controller.ping();
+                  print(ping_result);
                 },),
               ),
             ),

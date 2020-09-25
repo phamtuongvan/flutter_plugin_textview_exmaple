@@ -45,7 +45,7 @@ class FirstWidgetController {
 
   final MethodChannel _channel;
 
-  Future<void> ping() async {
+  Future<String> ping() async {
     return _channel.invokeMethod('ping');
   }
 }
