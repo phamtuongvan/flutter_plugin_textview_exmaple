@@ -101,8 +101,9 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             Card(
               child: SizedBox(
-                height: 200,
-                child: FirstWidget(),
+                height: 60,
+                width: 222,
+                child: FirstWidget(onFirstWidgetWidgetCreated: ,),
               ),
             ),
             Text(

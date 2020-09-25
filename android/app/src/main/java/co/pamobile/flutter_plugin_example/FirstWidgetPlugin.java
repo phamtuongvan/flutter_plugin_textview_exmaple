@@ -6,14 +6,14 @@ import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import io.flutter.embedding.engine.plugins.activity.ActivityAware;
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding;
 
-//public class FirstWidgetPlugin1 {
-//    public static void registerWith(Registrar registrar) {
-//        registrar
-//                .platformViewRegistry()
-//                .registerViewFactory(
-//                        "plugins/first_widget", new FirstWidgetFactory(registrar));
-//    }
-//}
+
+
+
+
+
+
+
+
 public class FirstWidgetPlugin implements FlutterPlugin, ActivityAware {
     //...normal plugin behavior is hidden...
 

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.MethodCall;
@@ -13,11 +14,12 @@ import io.flutter.plugin.common.MethodChannel.Result;
 import io.flutter.plugin.platform.PlatformView;
 
 public final class FirstWidget implements PlatformView, MethodCallHandler {
-    private final View view;
+    private final LinearLayout view;
+    CurvedText curvedText;
     private final MethodChannel methodChannel;
 
     public View getView() {
-        return this.view;
+        return this.curvedText;
     }
 
     public void onMethodCall( MethodCall methodCall, Result result) {
@@ -34,7 +36,17 @@ public final class FirstWidget implements PlatformView, MethodCallHandler {
 
 
     FirstWidget(Context context, BinaryMessenger messenger, int id) {
-        view = LayoutInflater.from(context).inflate(R.layout.first_widget, (ViewGroup)null);
+
+        view = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.cv_widget, (ViewGroup)null);
+
+        curvedText = new CurvedText(context, 1, "minion");
+        curvedText.init(3,"minion");
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT);
+        curvedText.setLayoutParams(params);
+        curvedText.setTextOnPath("Hello Card Name",50);
+
 
         methodChannel = new MethodChannel(messenger, "plugins/first_widget_" + id);
 
